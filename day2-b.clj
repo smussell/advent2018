@@ -5,5 +5,5 @@
   (if (contains? resSet running)
     running
     (recur (conj resSet running)
-           (+ running (get m ind))
+           (+ running (nth m ind))
            (mod (inc ind) c))))
