@@ -261,7 +261,7 @@
  (if (zero? n) 0 1))
 
 (defn diff-val [a b] 
- (reduce + (map (comp conv char-diff) a b)))
+ (reduce + (map (comp clamp char-diff) a b)))
 
 (def diff-pair 
  (first (for [a codes-list b codes-list 
