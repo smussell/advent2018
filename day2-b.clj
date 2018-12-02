@@ -1,4 +1,5 @@
 (require '[clojure.string :as string])
+
 (def codes [
             "mvgowxqubnhaefjslkjlrptzyi"
             "pvgowlqubnhaefmslkjdrpteyi"
