@@ -6,8 +6,6 @@
             "#2 @ 3,1: 4x4"
             "#3 @ 5,5: 2x2"])
 
-
-
 (defn extract [s] (drop 2 (re-matches pattern s)))
 (def parsed 
   (map #(map read-string (extract %1)) codes))
