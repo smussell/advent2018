@@ -7,13 +7,14 @@
             "#3 @ 5,5: 2x2"])
 
 (defn extract [s] (drop 2 (re-matches pattern s)))
+(def dim-keys [:x :y :width :height])
 (def parsed 
-  (map #(map read-string (extract %1)) codes))
+  (map #(-> (->> (extract %1) (map read-string) (zipmap keys))) codes))
 
 (def outerBounds [
-                  (apply min (map (nn 0) parsed))
-                  (apply min (map (nn 1) parsed))
-                  (apply max (map #(+ (nth %1 0) (nth %1 2)) parsed))
-                  (apply max (map #(+ (nth %1 1) (nth %1 3)) parsed))
+                  (apply min (map :x parsed))
+                  (apply min (map :y parsed))
+                  (apply max (map #(+ (:x %1) (:width %1)) parsed))
+                  (apply max (map #(+ (:y %1) (:height %1)) parsed))
                   ])
 
